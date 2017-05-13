@@ -9,15 +9,25 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    var cohortArray = ["Marvin", "Masato", "Kevin", "Shruta", "Kavya", "Tahim",
+                       "Charles", "Colin", "Kyle", "Frank", "Heather", "Sharon"]
+    
+    
+    
+    @IBAction func coldCallButton(_ sender: UIButton) {
+        let idx = Int(arc4random_uniform(UInt32(cohortArray.count)))
+        print("Choosing name by clicking tag \(sender.tag)")
 
+        nameLabel.text = cohortArray[idx]
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        nameLabel.text = "Ready?"
     }
 
 
